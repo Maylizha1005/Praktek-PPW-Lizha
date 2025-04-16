@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Toko Kecantikan</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .card {
+      width: 18rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: auto;
+    }
+    .card-body {
+      padding: 1rem;
+    }
+    .keranjang {
+      margin-top: 2rem;
+      padding: 1rem;
+      border: 2px solid #007bff;
+      border-radius: 10px;
+    }
+    .keranjang h2 {
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+    <div class="body">
+      
+      <!-- Kartu 1 -->
+      <div class="card">
+        <a href="katalog.html#deskripsi1" target="_blank">
+          <img src="img/BrighteningSerum.jpg" alt="BrighteningSerum">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><a href="katalog.html#deskripsi1" target="_blank">BrighteningSerum</a></h5>
+          <p><strong>Rp109.850</strong></p>
+          <button onclick="tambahKeranjang('BrighteningSerum', 109850)">Tambah ke Keranjang</button>
+        </div>
+      </div>
+  
+      <!-- Kartu 2 -->
+      <div class="card">
+        <a href="katalog.html#deskripsi2" target="_blank">
+          <img src="img/claymaskstik.jpg" alt="claymaskstik">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><a href="katalog.html#deskripsi2" target="_blank">Claymask Stik</a></h5>
+          <p><strong>Rp120.000</strong></p>
+          <button onclick="tambahKeranjang('Claymask Stik', 120000)">Tambah ke Keranjang</button>
+        </div>
+      </div>
+  
+      <!-- Kartu 3 -->
+      <div class="card">
+        <a href="katalog.html#deskripsi3" target="_blank">
+          <img src="img/cushion.jpeg" alt="Cushion Glad2Glow">
+        </a>
+        <div class="card-body">
+          <h5 class="card-title"><a href="katalog.html#deskripsi3" target="_blank">Cushion Glad2Glow</a></h5>
+          <p><strong>Rp120.000</strong></p>
+          <button onclick="tambahKeranjang('Cushion Glad2Glow', 120000)">Tambah ke Keranjang</button>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Keranjang -->
+    <div class="keranjang">
+      <h2>Keranjang Belanja</h2>
+      <ul id="daftarKeranjang" class="list-group mb-3"></ul>
+      <h4>Total: <span id="totalHarga">Rp0</span></h4>
+      <button onclick="checkout()">Checkout</button>
+    </div>
+  
+    <script>
+      const daftarKeranjang = document.getElementById("daftarKeranjang");
+      const totalHargaEl = document.getElementById("totalHarga");
+      let keranjang = [];
+  
+      function tambahKeranjang(nama, harga) {
+        keranjang.push({ nama, harga });
+        tampilkanKeranjang();
+      }
+  
+      function hapusDariKeranjang(index) {
+        keranjang.splice(index, 1);
+        tampilkanKeranjang();
+      }
+  
+      function tampilkanKeranjang() {
+        daftarKeranjang.innerHTML = "";
+        let total = 0;
+        keranjang.forEach((item, index) => {
+          total += item.harga;
+          const li = document.createElement("li");
+          li.innerHTML = `
+            ${item.nama} - Rp${item.harga.toLocaleString("id-ID")}
+            <button onclick="hapusDariKeranjang(${index})">Hapus</button>
+          `;
+          daftarKeranjang.appendChild(li);
+        });
+        totalHargaEl.textContent = "Rp" + total.toLocaleString("id-ID");
+      }
+  
+      function checkout() {
+        if (keranjang.length === 0) {
+          alert("Keranjang masih kosong!");
+          return;
+        }
+        const daftarProduk = keranjang.map(item => `${item.nama} (Rp${item.harga.toLocaleString("id-ID")})`).join("\n");
+        const total = keranjang.reduce((sum, item) => sum + item.harga, 0);
+        alert(`Terima kasih sudah berbelanja!\n\nProduk:\n${daftarProduk}\n\nTotal: Rp${total.toLocaleString("id-ID")}`);
+        keranjang = [];
+        tampilkanKeranjang();
+      }
+    </script>
+  </body>
+</html>
