@@ -163,7 +163,8 @@
                 <h5 class="card-title">${item.nama}</h5>
                 <p class="card-text">${item.deskripsi}</p>
                 <p class="card-text"><strong>Rp${item.harga.toLocaleString()}</strong></p>
-                <button onclick="tambahKeranjang('${item.nama}', ${item.harga})" class="btn btn-success">Tambah ke Keranjang</button>
+                <button onclick="tambahKeranjang('${item.nama}', ${item.harga})" class="btn btn-success mb-2">Tambah ke Keranjang</button>
+                <a href="produk-detail.html?produk=${encodeURIComponent(item.nama)}" class="btn btn-outline-primary w-100">Lihat Detail</a>
               </div>
             </div>
           </div>

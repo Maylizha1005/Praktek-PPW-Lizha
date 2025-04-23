@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Buku Tamu dan Biodata</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: #333;
+    }
+    form {
+      margin-bottom: 50px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      width: 600px;
+    }
+    label {
+      display: inline-block;
+      width: 150px;
+      margin-bottom: 5px;
+    }
+    input, textarea, select {
+      margin-bottom: 10px;
+      width: 400px;
+      padding: 5px;
+    }
+    .radio-group, .checkbox-group {
+      margin-left: 150px;
+      margin-bottom: 10px;
+    }
+    .submit-button {
+      margin-left: 150px;
+      padding: 8px 20px;
+    }
+    table {
+      margin-left: 150px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>1. Form Buku Tamu</h2>
+  <form>
+    <label for="subject">Subject:</label><br>
+    <input type="text" id="subject" name="subject"><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+
+    <label for="message">Isi Pesan:</label><br>
+    <textarea id="message" name="message" rows="4" cols="50"></textarea><br>
+
+    <button type="submit" class="submit-button">Kirim</button>
+  </form>
+
+  <h2>2. Form Biodata</h2>
+  <form>
+    <label>Nama:</label>
+    <input type="text" name="nama"><br>
+
+    <label>Tempat Lahir:</label>
+    <input type="text" name="tempat"><br>
+
+    <label>Tanggal Lahir:</label>
+    <input type="date" name="tanggal"><br>
+
+    <label>Jenis Kelamin:</label>
+    <div class="radio-group">
+      <input type="radio" name="jk" value="L"> Laki-laki
+      <input type="radio" name="jk" value="P"> Perempuan
+    </div>
+
+    <label>Agama:</label>
+    <select name="agama">
+      <option>Islam</option>
+      <option>Kristen</option>
+      <option>Katolik</option>
+      <option>Hindu</option>
+      <option>Budha</option>
+      <option>Khonghucu</option>
+    </select><br>
+
+    <label>Alamat:</label>
+    <textarea name="alamat" rows="3"></textarea><br>
+
+    <label>No. Telepon:</label>
+    <input type="text" name="telepon"><br>
+
+    <label>No. HP:</label>
+    <input type="text" name="hp"><br>
+
+    <label>Hobi:</label>
+    <div class="checkbox-group">
+      <input type="checkbox" name="hobi" value="Membaca"> Membaca
+      <input type="checkbox" name="hobi" value="Olahraga"> Olahraga
+      <input type="checkbox" name="hobi" value="Musik"> Musik
+      <input type="checkbox" name="hobi" value="Video Game"> Video Game
+    </div>
+
+    <label>Riwayat Pendidikan:</label>
+    <table>
+      <tr><td>S1</td><td><input type="text" name="s1"></td></tr>
+      <tr><td>D3</td><td><input type="text" name="d3"></td></tr>
+      <tr><td>SMA</td><td><input type="text" name="sma"></td></tr>
+      <tr><td>SMP</td><td><input type="text" name="smp"></td></tr>
+      <tr><td>SD</td><td><input type="text" name="sd"></td></tr>
+    </table><br>
+
+    <button type="submit" class="submit-button">SIMPAN</button>
+  </form>
+
+</body>
+</html>
