@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registrasi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Form Registrasi</h2>
+    <form id="registerForm">
+      <input type="text" placeholder="Nama Lengkap" id="nama" required />
+      <input type="email" placeholder="Email" id="email" required />
+      <input type="password" placeholder="Kata Sandi" id="password" required />
+      <input type="text" placeholder="Nomor Telepon" id="telepon" required pattern="[0-9]+" />
+      <input type="date" id="tanggalLahir" required />
+      <textarea placeholder="Alamat Lengkap" id="alamat" required></textarea>
+      <input type="file" id="fotoProfil" accept="image/*" required />
+      <button type="submit">Daftar</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
